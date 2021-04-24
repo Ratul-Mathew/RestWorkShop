@@ -26,7 +26,9 @@ class BasicRestInJava {
         int code = conn.getResponseCode();
         if(code>=200 && code<299) {
             in = conn.getInputStream();
-        }
+        } else {
+			throw new RuntimeException("ResponseCode="+code);
+		}
         
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         StringBuffer str = new StringBuffer();
